@@ -10,7 +10,7 @@ IN_FILENAMES <- c(
 )
 OUT_FILENAME <- "ngrams.dat"
 NUM_NGRAMS <- 3
-SAMPLE_RATE <- .05
+SAMPLE_RATE <- .025
 
 option_list <- list(
   make_option(
@@ -60,5 +60,5 @@ for (i in 1:NUM_NGRAMS) {
   )
 }
 
-print(sprintf("Storing N-grams as data file"))
+print(sprintf("Storing N-grams as data file %s", out))
 result <- save(ngrams, file = out)
