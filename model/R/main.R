@@ -2,7 +2,6 @@ library(quanteda)
 
 NUM_SUGGESTIONS <- 3
 
-
 getRegex <- function(phrase, n) {
   # An all-match regex for empty phrases
   regex <- "^.*"
@@ -28,6 +27,20 @@ topMatches <- function(pattern, ngram, n = NUM_SUGGESTIONS) {
   names(top)
 }
 
+#' Next word predictor
+#'
+#' This function generates `n` word suggestions (3 by
+#' default) using a list of `quanteda` N-grams as observed data, and
+#' a phrase for which you want the prediction to be based of.
+#'
+#' It implements a simplified version of the [Katz's backoff model]
+#' (https://en.wikipedia.org/wiki/Katz%27s_back-off_model).
+#'
+#' @param phrase A character vector representing the preceeding words for the prediction
+#' @param ngrams A vector of `quanteda` N-grams, in ascending order (e.g. 1-gram,
+#' 2-gram, etc.)
+#' @param n The amount of predicted words.
+#' @return A vector of predicted words, ordered by descending likelihood.
 suggestNextWords <- function(phrase, ngrams, n = NUM_SUGGESTIONS) {
   suggestions <- c()
   remainingSuggestions <- n
