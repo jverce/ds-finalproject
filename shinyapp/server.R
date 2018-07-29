@@ -18,8 +18,9 @@ library(model)
 load("ngrams.dat")
 
 updateText <- function(input, session, newWord) {
-  text <- input$text
-  newText <- paste(text, newWord)
+  textInput <- input$text
+  newText <- paste(textInput, newWord, sep = "")
+  newText <- paste(newText, " ", sep = "")  # Append whitespace at the end
   updateTextAreaInput(session, "text", value = newText)
 }
 
