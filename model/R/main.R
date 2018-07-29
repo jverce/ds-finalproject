@@ -8,8 +8,8 @@ getRegex <- function(phrase, n) {
   regex <- "^.*"
 
   if (n > 0) {
-    phrase <- tolower(phrase)
-    phrase <- tokens(
+    phrase <- quanteda::char_tolower(phrase)
+    phrase <- quanteda::tokens(
       phrase, what = "fasterword",
       remove_numbers = TRUE, remove_punct = TRUE, remove_url = TRUE, remove_symbols = TRUE)
 
@@ -22,7 +22,7 @@ getRegex <- function(phrase, n) {
 }
 
 topMatches <- function(pattern, ngram, n = NUM_SUGGESTIONS) {
-  filtered <- dfm_select(
+  filtered <- quanteda::dfm_select(
     ngram, pattern = pattern, selection = "keep", valuetype = "regex")
   top <- topfeatures(filtered, n)
   names(top)
@@ -53,7 +53,7 @@ suggestNextWords <- function(phrase, ngrams, n = NUM_SUGGESTIONS) {
     pattern <- getRegex(phrase, n = ngram@ngrams - 1)
     matches <- topMatches(pattern, ngram, n = remainingSuggestions)
     for (match in matches) {
-      match <- tokens(match, what = "word")
+      match <- quanteda::tokens(match, what = "word")
       match <- match$text1
 
       # This condition avoids having repeated suggestions
