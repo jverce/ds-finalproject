@@ -21,14 +21,14 @@ shinyUI(fluidPage(
   column(12, align = "center",
     # Text input
     wellPanel(
-       textAreaInput("text", label = "Text editor")
+       textAreaInput("text", label = "Text editor", height = '200px')
     ),
 
     # Suggestion buttons
-    wellPanel(
-       uiOutput("suggestion3"),
-       uiOutput("suggestion1"),
-       uiOutput("suggestion2")
+    fluidRow(
+       column(4, uiOutput("suggestion3")),
+       column(4, uiOutput("suggestion1")),
+       column(4, uiOutput("suggestion2"))
     )
   )
 ))
