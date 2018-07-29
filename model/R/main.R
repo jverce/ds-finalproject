@@ -8,7 +8,7 @@ getRegex <- function(phrase, n) {
   regex <- "^.*"
 
   if (n > 0) {
-    phrase <- char_tolower(phrase)
+    phrase <- tolower(phrase)
     phrase <- tokens(
       phrase, what = "fasterword",
       remove_numbers = TRUE, remove_punct = TRUE, remove_url = TRUE, remove_symbols = TRUE)
