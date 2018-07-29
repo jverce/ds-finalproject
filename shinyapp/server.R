@@ -9,7 +9,6 @@
 
 # 3rd party packages
 library(shiny)
-library(quanteda)
 
 # Own packages
 library(model)
