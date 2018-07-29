@@ -51,7 +51,11 @@ suggestNextWords <- function(phrase, ngrams, n = NUM_SUGGESTIONS) {
     for (match in matches) {
       match <- tokens(match, what = "word")
       match <- match$text1
-      suggestions <- c(suggestions, tail(match, 1))
+
+      # This condition avoids having repeated suggestions
+      if (! match %in% suggestions) {
+        suggestions <- c(suggestions, tail(match, 1))
+      }
     }
 
     remainingSuggestions <- n - length(suggestions)
