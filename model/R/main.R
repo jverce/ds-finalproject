@@ -24,7 +24,7 @@ getRegex <- function(phrase, n) {
 topMatches <- function(pattern, ngram, n = NUM_SUGGESTIONS) {
   filtered <- quanteda::dfm_select(
     ngram, pattern = pattern, selection = "keep", valuetype = "regex")
-  top <- topfeatures(filtered, n)
+  top <- quanteda::topfeatures(filtered, n)
   names(top)
 }
 
