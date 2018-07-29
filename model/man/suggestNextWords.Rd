@@ -9,7 +9,7 @@ suggestNextWords(phrase, ngrams, n = NUM_SUGGESTIONS)
 \arguments{
 \item{phrase}{A character vector representing the preceeding words for the prediction}
 
-\item{ngrams}{A vector of `quanteda` N-grams, in ascending order (e.g. 1-gram,
+\item{ngrams}{A vector of \code{quanteda} N-grams, in ascending order (e.g. 1-gram,
 2-gram, etc.)}
 
 \item{n}{The amount of predicted words.}
@@ -18,11 +18,11 @@ suggestNextWords(phrase, ngrams, n = NUM_SUGGESTIONS)
 A vector of predicted words, ordered by descending likelihood.
 }
 \description{
-This function generates `n` word suggestions (3 by
-default) using a list of `quanteda` N-grams as observed data, and
+This function generates \code{n} word suggestions (3 by
+default) using a list of \code{quanteda} N-grams as observed data, and
 a phrase for which you want the prediction to be based of.
 }
 \details{
-It implements a simplified version of the [Katz's backoff model]
-(https://en.wikipedia.org/wiki/Katz%27s_back-off_model).
+It implements a simplified version of the
+\link[=https://en.wikipedia.org/wiki/Katz\%27s_back-off_model]{Katz's backoff model}.
 }
