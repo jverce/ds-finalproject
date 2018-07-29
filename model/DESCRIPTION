@@ -4,6 +4,8 @@ Version: 0.0.0.9000
 Authors@R: person("Jay", "Vercellone", email = "juanjov@gmail.com", role = c("aut", "cre"))
 Description: Predicts the next word of a preceeding phrase using N-grams.
 Depends: R (>= 3.5.0)
+Imports:
+    quanteda (>= 1.1.0)
 License: 
 Encoding: UTF-8
 LazyData: true
