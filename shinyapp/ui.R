@@ -26,9 +26,9 @@ shinyUI(fluidPage(
 
     # Suggestion buttons
     wellPanel(
-       actionButton("suggestion3", label = "suggestion3"),
-       actionButton("suggestion1", label = "suggestion1"),
-       actionButton("suggestion2", label = "suggestion2")
+       uiOutput("suggestion3"),
+       uiOutput("suggestion1"),
+       uiOutput("suggestion2")
     )
   )
 ))
